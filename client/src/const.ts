@@ -19,7 +19,13 @@ export const startLogin = () => {
   // If OAuth is not configured (e.g. demo deploy), fall back to an
   // in-app sign-in page that stores a demo user in localStorage.
   if (!oauthPortalUrl || !appId) {
-    window.location.href = `${window.location.origin}/signin`;
+    // Use hash navigation so the SPA handles the route and the server
+    // doesn't return a 404 for deep links on hosts without SPA rewrite.
+    try {
+      window.location.hash = "/signin";
+    } catch {
+      window.location.href = `${window.location.origin}/#/signin`;
+    }
     return;
   }
 

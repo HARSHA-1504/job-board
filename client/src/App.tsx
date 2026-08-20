@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router as WouterRouter, useHashLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -17,7 +17,8 @@ import Apply from "./pages/Apply";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
+    <WouterRouter hook={useHashLocation()}>
+      <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/discover"} component={Discover} />
@@ -28,9 +29,10 @@ function Router() {
       <Route path={"/onboarding"} component={Onboarding} />
       <Route path={"/signin"} component={SignIn} />
       <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+        {/* Final fallback route */}
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
   );
 }
 
