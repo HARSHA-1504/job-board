@@ -5,6 +5,7 @@ import { useCareerProfile } from "@/hooks/useCareerProfile";
 import { useNexoraStorage } from "@/hooks/useNexoraStorage";
 import { type ApplicationRecord, type SavedJob } from "@/lib/nexora";
 import { trpc } from "@/lib/trpc";
+import { DEMO_JOBS } from "../../../shared/demoJobs";
 import { calculateCareerMomentum } from "../../../shared/dashboardMetrics";
 import type { ResumeMatchResult } from "../../../shared/nexora";
 import {
@@ -117,7 +118,7 @@ export default function Dashboard() {
         <section className="metric-ribbon" aria-label="Career metrics">
           <Metric
             icon={<Target size={18} />}
-            value={jobs.data?.length ?? "—"}
+            value={jobs.data?.length ?? DEMO_JOBS.length}
             label="roles in your field"
             note="Expanded opportunity map"
           />

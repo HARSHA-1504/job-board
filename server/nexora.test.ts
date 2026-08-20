@@ -36,17 +36,18 @@ describe("NEXORA job discovery", () => {
     expect(jobs[0]?.salaryMax).toBeGreaterThanOrEqual(jobs[1]?.salaryMax ?? 0);
   });
 
-  it("includes the expanded 29-role catalogue across multiple job families", () => {
-    expect(DEMO_JOBS).toHaveLength(29);
+  it("includes the expanded 30-role catalogue across multiple job families", () => {
+    expect(DEMO_JOBS).toHaveLength(30);
     expect(DEMO_JOBS.map(job => job.title)).toEqual(
       expect.arrayContaining([
         "UX Researcher",
         "DevOps Engineer",
         "Technical Writer",
         "Solutions Architect",
+        "Android Developer",
       ])
     );
-    expect(new Set(DEMO_JOBS.map(job => job.id)).size).toBe(29);
+    expect(new Set(DEMO_JOBS.map(job => job.id)).size).toBe(30);
   });
 
   it("extracts a safe search intent when the LLM is unavailable", () => {

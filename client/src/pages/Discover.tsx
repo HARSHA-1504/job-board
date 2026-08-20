@@ -19,7 +19,6 @@ import {
   AppShell,
   DetailsPanel,
   EmptyState,
-  ErrorState,
   JobCard,
   JobSkeleton,
   labelize,
@@ -31,6 +30,7 @@ import { useNexoraStorage } from "@/hooks/useNexoraStorage";
 import { type SavedJob } from "@/lib/nexora";
 import { trpc } from "@/lib/trpc";
 import { createApplication } from "../../../shared/applicationTracker";
+import { DEMO_JOBS, filterDemoJobs } from "../../../shared/demoJobs";
 
 type Filters = {
   location: string;
@@ -73,7 +73,16 @@ export default function Discover() {
     }),
     [query, filters]
   );
-  const jobsQuery = trpc.nexora.listJobs.useQuery(searchInput);
+  const localJobs = useMemo(
+    () => filterDemoJobs(DEMO_JOBS, searchInput),
+    [searchInput]
+  );
+  const jobsQuery = trpc.nexora.listJobs.useQuery(searchInput, {
+    retry: 1,
+    placeholderData: () => localJobs,
+  });
+  const jobs =
+    jobsQuery.data && jobsQuery.data.length > 0 ? jobsQuery.data : localJobs;
   const parseSearch = trpc.nexora.interpretSearch.useMutation({
     onSuccess: data => {
       setIntent(data);
@@ -123,18 +132,18 @@ export default function Discover() {
     }
   }, [location]);
   const visibleJobIds = useMemo(
-    () => jobsQuery.data?.map(job => job.id).join(",") ?? "",
-    [jobsQuery.data]
+    () => jobs.map(job => job.id).join(","),
+    [jobs]
   );
   useEffect(() => {
-    if (!jobsQuery.data?.length) return;
+    if (!jobs.length || jobsQuery.isError) return;
     // The server refines up to twelve cards per request. Every card keeps its
     // immediate profile-based insight while this optional AI refinement runs.
     matchJobs.mutate({
-      jobIds: jobsQuery.data.slice(0, 12).map(job => job.id),
+      jobIds: jobs.slice(0, 12).map(job => job.id),
       profile,
     });
-  }, [visibleJobIds, profile]);
+  }, [visibleJobIds, profile, jobsQuery.isError]);
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
     if (query.trim().length < 3)
@@ -340,7 +349,7 @@ export default function Discover() {
             <div className="results-toolbar">
               <div>
                 <span className="eyebrow muted">Opportunity field</span>
-                <h2>{jobsQuery.data?.length ?? 0} roles in focus</h2>
+                <h2>{jobs.length} roles in focus</h2>
               </div>
               <div>
                 <Button
@@ -367,17 +376,15 @@ export default function Discover() {
                 </select>
               </div>
             </div>
-            {jobsQuery.isLoading ? (
+            {jobsQuery.isLoading && !jobs.length ? (
               <div className="job-list">
                 {[1, 2, 3, 4].map(item => (
                   <JobSkeleton key={item} />
                 ))}
               </div>
-            ) : jobsQuery.isError ? (
-              <ErrorState retry={() => jobsQuery.refetch()} />
-            ) : jobsQuery.data?.length ? (
+            ) : jobs.length ? (
               <div className="job-list">
-                {jobsQuery.data.map(job => (
+                {jobs.map(job => (
                   <JobCard
                     key={job.id}
                     job={job}

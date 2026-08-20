@@ -2739,7 +2739,7 @@ a:focus-visible {
   align-items: center;
 }
 .section-number {
-  color: #70a817;
+  color: #d2c6ff;
   font:
     500 10px "DM Mono",
     monospace;
@@ -2747,7 +2747,7 @@ a:focus-visible {
 .editorial-search-band h2,
 .editorial-proof h2 {
   margin: 8px 0 0;
-  color: #111411;
+  color: #ffffff;
   font-family: "Archivo Black", sans-serif;
   font-size: clamp(23px, 2.4vw, 38px);
   line-height: 0.98;
@@ -2825,13 +2825,13 @@ a:focus-visible {
 }
 .proof-points h3 {
   margin: 24px 0 6px;
-  color: #111411;
+  color: #ffffff;
   font-size: 15px;
   letter-spacing: -0.04em;
 }
 .proof-points p {
   margin: 0;
-  color: #5d655b;
+  color: #e6e1f7;
   font-size: 12px;
   line-height: 1.55;
 }
@@ -2844,11 +2844,11 @@ a:focus-visible {
   border-top: 1px dashed #c5cbc0;
 }
 .proof-cta .brand-mark {
-  color: #111411;
+  color: #ffffff;
 }
 .proof-cta p {
   margin: 0 auto 0 0;
-  color: #394137;
+  color: #ffffff;
   font-weight: 700;
   font-size: 13px;
 }
@@ -3258,6 +3258,42 @@ body,
 .editorial-description {
   color: #f4f1ff !important;
 }
+.editorial-search-band,
+.editorial-proof {
+  border-color: rgba(197, 179, 255, 0.18) !important;
+}
+.section-number {
+  color: #c4b5ff !important;
+}
+.editorial-search-band h2,
+.editorial-proof h2,
+.proof-points h3,
+.proof-cta p,
+.proof-cta .brand-mark {
+  color: #f6f3ff !important;
+}
+.proof-points p,
+.editorial-suggestions button {
+  color: #d2cce8 !important;
+}
+.editorial-suggestions button {
+  border-color: #4d4668 !important;
+}
+.editorial-search {
+  background: #f7f5ff !important;
+  border-color: #aa94ff !important;
+}
+.editorial-search input {
+  color: #161222 !important;
+}
+.visual-annotation,
+.career-card-back > span,
+.mini-label {
+  color: #c9c0ef !important;
+}
+.proof-cta {
+  border-color: rgba(197, 179, 255, 0.22) !important;
+}
 .editorial-title span {
   color: #b69fff !important;
   text-shadow: 0 4px 0 #302a4a;
@@ -3622,4 +3658,22 @@ body,
     grid-template-columns: 1fr;
     gap: 0;
   }
+}
+
+.topbar .mobile-menu-panel {
+  background: #101018 !important;
+  border-top: 1px solid #3a3454 !important;
+}
+.topbar .mobile-menu-panel a {
+  color: #ffffff !important;
+}
+.topbar .mobile-menu-panel a.active {
+  color: #d2c6ff !important;
+}
+.topbar .mobile-menu-panel svg {
+  color: #d2c6ff !important;
+}
+.editorial-suggestions button {
+  color: #f0ecff !important;
+  border-color: #6b6290 !important;
 }

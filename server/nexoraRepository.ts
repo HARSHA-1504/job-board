@@ -50,6 +50,7 @@ export async function listNexoraJobs(params: JobSearchParams): Promise<Job[]> {
     const db = await getDb();
     if (!db) return filterDemoJobs(DEMO_JOBS, params);
     const allJobs = (await db.select().from(jobs)).map(toJob);
+    if (!allJobs.length) return filterDemoJobs(DEMO_JOBS, params);
     return filterDemoJobs(allJobs, params);
   } catch {
     return filterDemoJobs(DEMO_JOBS, params);

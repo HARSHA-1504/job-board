@@ -7,7 +7,12 @@ import { startLogin } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useCareerProfile } from "@/hooks/useCareerProfile";
 import { isCareerProfileReady } from "../../../shared/careerProfile";
+import { DEMO_JOBS } from "../../../shared/demoJobs";
 import { getPostSignInRoute } from "../../../shared/onboarding";
+
+const homeInk = { color: "#ffffff" } as const;
+const homeMuted = { color: "#e6e1f7" } as const;
+const homeAccent = { color: "#d2c6ff" } as const;
 
 const suggestions = [
   "Python fresher jobs in Hyderabad",
@@ -46,11 +51,11 @@ export default function Home() {
           <div className="editorial-kicker">
             <Sparkles size={13} /> Career intelligence for deliberate moves
           </div>
-          <h1 className="editorial-title">
+          <h1 className="editorial-title" style={homeInk}>
             BUILD YOUR
-            <span>NEXT MOVE.</span>
+            <span style={homeAccent}>NEXT MOVE.</span>
           </h1>
-          <p className="editorial-description">
+          <p className="editorial-description" style={homeMuted}>
             Find roles that work with your skills, ambitions, and next chapter.
             Less noise. More signal.
           </p>
@@ -68,7 +73,7 @@ export default function Home() {
           </div>
           <div className="editorial-facts" aria-label="NEXORA benefits">
             <span>AI role matching</span>
-            <span>29 curated roles</span>
+            <span>{DEMO_JOBS.length} curated roles</span>
             <span>Clear application tracking</span>
           </div>
         </div>
@@ -112,8 +117,10 @@ export default function Home() {
 
       <section className="editorial-search-band">
         <div>
-          <span className="section-number">01</span>
-          <h2>Tell us what you’re looking for.</h2>
+          <span className="section-number" style={homeAccent}>
+            01
+          </span>
+          <h2 style={homeInk}>Tell us what you’re looking for.</h2>
         </div>
         <form className="editorial-search" onSubmit={submit}>
           <Compass size={19} />
@@ -142,29 +149,37 @@ export default function Home() {
 
       <section className="editorial-proof">
         <div className="proof-statement">
-          <span className="section-number">02</span>
-          <h2>Job search, without the second-guessing.</h2>
+          <span className="section-number" style={homeAccent}>
+            02
+          </span>
+          <h2 style={homeInk}>Job search, without the second-guessing.</h2>
         </div>
         <div className="proof-points">
           <article>
             <Check size={18} />
-            <h3>Intent first</h3>
-            <p>Your words become filters you can understand and adjust.</p>
+            <h3 style={homeInk}>Intent first</h3>
+            <p style={homeMuted}>
+              Your words become filters you can understand and adjust.
+            </p>
           </article>
           <article>
             <Check size={18} />
-            <h3>Fit, explained</h3>
-            <p>Every role includes the exact reasons it meets your profile.</p>
+            <h3 style={homeInk}>Fit, explained</h3>
+            <p style={homeMuted}>
+              Every role includes the exact reasons it meets your profile.
+            </p>
           </article>
           <article>
             <Check size={18} />
-            <h3>Momentum kept</h3>
-            <p>Save promising roles and keep each application moving.</p>
+            <h3 style={homeInk}>Momentum kept</h3>
+            <p style={homeMuted}>
+              Save promising roles and keep each application moving.
+            </p>
           </article>
         </div>
         <div className="proof-cta">
           <BrandMark compact />
-          <p>Make your next move intentional.</p>
+          <p style={homeInk}>Make your next move intentional.</p>
           <Button
             className="lime-button"
             onClick={() => navigate("/dashboard")}
