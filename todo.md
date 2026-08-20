@@ -1,0 +1,52 @@
+# Project TODO
+
+- [x] Establish NEXORA visual system, dark-first theme, typography, responsive navigation, and accessibility foundations.
+- [x] Build the asymmetric public landing page with hero search, product narrative, feature highlights, and calls to action.
+- [x] Implement a normalized job model, resilient mock job provider, and diverse job records for the full demo flow.
+- [x] Create LLM-ready natural-language search intent parsing for role, location, salary range, work type, and seniority.
+- [x] Build the searchable, filterable, and sortable job discovery feed with job cards and detailed job panels.
+- [x] Add real-time AI-powered job match insights with the exact label "Why this fits you".
+- [x] Create the user profile experience for skills, experience, preferred roles, location, and work-mode preferences.
+- [x] Implement saved jobs with bookmark and one-click unsave interactions.
+- [x] Implement the application tracker with the exact status labels Applied, Interviewing, Offered, and Rejected, plus notes and timestamps.
+- [x] Add loading, error, empty, and success states with toast feedback and polished micro-interactions.
+- [x] Add unit tests for core parsing, matching, and tracking logic, and verify the full project locally.
+- [x] Create project documentation and package the complete working project as a downloadable archive.
+- [x] Add environment-variable guidance, a professional README, and a functional GitHub Actions verification workflow.
+- [x] Generate resilient per-listing match insights automatically for each visible role and preserve the exact "Why this fits you" label.
+- [x] Make preferred roles and preferred locations editable in the profile and persist the changes with the rest of the profile.
+- [x] Add automated tests for application-tracker status transitions, note updates, and timestamp handling.
+- [x] Generate and verify a complete downloadable project archive.
+- [x] Add 20 additional diverse roles to the normalized NEXORA job catalogue and verify discovery coverage.
+- [x] Implement AI-assisted resume analysis that extracts skills and matches the resume against suitable job roles with explainable scores.
+- [x] Create a career-command dashboard with role-match intelligence, application progress, and actionable opportunity metrics.
+- [x] Enhance the visual system with accessible 3D depth, layered glass panels, and motion that respects reduced-motion preferences.
+- [x] Add tests and local visual verification for the expanded catalogue, resume matching, and dashboard flows.
+- [x] Add automated verification for the 29-role catalogue and dashboard momentum computation, then rerun the quality suite.
+- [x] Diagnose the discovery-page error toast reported in the mobile preview and identify the failing request or interaction.
+- [x] Ensure discovery insight generation fails silently to its local profile-based fallback without surfacing a misleading error toast.
+- [x] Verify the corrected discovery flow on mobile and save the fix as an updated project version.
+- [x] Define and apply a light editorial NEXORA design system with a warm neutral canvas, vivid lime signal accent, condensed display type, and restrained navigation.
+- [x] Redesign the public NEXORA landing page with the supplied reference’s bold hierarchy, compact CTA treatment, and an original job-platform signal visual.
+- [x] Restyle discovery, dashboard, saved roles, applications, and profile views for consistent light-mode clarity and responsive usability.
+- [x] Validate the reference-inspired interface on desktop and mobile, then save the updated project version.
+- [x] Add an accessible, prominent Sign in action to the reference-inspired homepage navigation using the existing secure authentication flow.
+- [x] Apply the supplied dark charcoal, lavender, and signal-card visual direction across the NEXORA landing and application shell.
+- [x] Implement a secure post-sign-in onboarding route that collects profile essentials and resume text in one progressive workflow.
+- [x] Reuse the onboarding profile and resume data in existing profile and resume-matching views without duplicating questions or storage.
+- [x] Add tests and responsive visual validation for the new dark interface and authenticated onboarding journey, then save the update.
+- [x] Add focused coverage for the shared onboarding career-profile flow and validate its mobile route presentation.
+- [x] Add testable authentication-aware onboarding route-gating logic and cover the post-sign-in decision.
+- [x] Revalidate the dark onboarding flow and save the completed update as a new project version.
+- [x] Confirm the post-sign-in route decision and onboarding presentation after the latest shared helper change at desktop and mobile sizes.
+- [x] Save the route-gating fix as the final updated NEXORA project version.
+- [x] Diagnose why populated onboarding skills trigger a generic validation message.
+- [x] Provide specific skills and resume validation messages, with clear completion requirements.
+- [x] Test the corrected onboarding validation with comma-separated skills and a short resume, then save the fix.
+- [x] Defer direct workspace GitHub export after authorization restrictions; provide the verified source ZIP for the user's local upload instead.
+- [x] Prepare the current NEXORA main branch source for local upload to https://github.com/HARSHA-1504/job-board.git.
+- [x] Diagnose the HTTP 403 GitHub write failure as an external integration permission restriction and provide a local-upload workaround.
+- [x] Package the complete runnable NEXORA source as a ZIP archive for local GitHub upload.
+- [x] Include repository-specific GitHub upload instructions in the downloadable source package.
+- [ ] Deliver the verified NEXORA ZIP archive to the user as a downloadable attachment.
+- [ ] Regenerate and verify the NEXORA ZIP archive includes the GitHub upload guide.

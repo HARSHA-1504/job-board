@@ -1,0 +1,22 @@
+CREATE TABLE `jobs` (
+	`id` varchar(96) NOT NULL,
+	`title` varchar(255) NOT NULL,
+	`company` varchar(255) NOT NULL,
+	`companyLogo` text,
+	`location` varchar(255) NOT NULL,
+	`remote` int NOT NULL DEFAULT 0,
+	`workMode` varchar(20) NOT NULL,
+	`jobType` varchar(20) NOT NULL,
+	`experienceLevel` varchar(20) NOT NULL,
+	`salaryMin` int,
+	`salaryMax` int,
+	`currency` varchar(8) NOT NULL DEFAULT 'INR',
+	`description` text NOT NULL,
+	`skills` json NOT NULL,
+	`postedAt` timestamp NOT NULL,
+	`source` varchar(128) NOT NULL,
+	`applyUrl` text NOT NULL,
+	`featured` int NOT NULL DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `jobs_id` PRIMARY KEY(`id`)
+);
