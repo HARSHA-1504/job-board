@@ -11,6 +11,8 @@ import Applications from "./pages/Applications";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Onboarding from "./pages/Onboarding";
+import SignIn from "./pages/SignIn";
+import Apply from "./pages/Apply";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -21,8 +23,10 @@ function Router() {
       <Route path={"/discover"} component={Discover} />
       <Route path={"/saved"} component={Saved} />
       <Route path={"/applications"} component={Applications} />
+      <Route path={"/apply/:id"} component={Apply} />
       <Route path={"/profile"} component={Profile} />
       <Route path={"/onboarding"} component={Onboarding} />
+      <Route path={"/signin"} component={SignIn} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
