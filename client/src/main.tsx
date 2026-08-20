@@ -72,6 +72,16 @@ const trpcClient = trpc.createClient({
   ],
 });
 
+// If a demo user was signed in via the local SignIn page, populate the
+// `auth.me` cache so the UI reflects an authenticated demo user.
+try {
+  const raw = localStorage.getItem("manus-runtime-user-info");
+  if (raw) {
+    const parsed = JSON.parse(raw);
+    queryClient.setQueryData(trpc.auth.me.getQueryKey(), parsed);
+  }
+} catch {}
+
 createRoot(document.getElementById("root")!).render(
   <trpc.Provider client={trpcClient} queryClient={queryClient}>
     <QueryClientProvider client={queryClient}>

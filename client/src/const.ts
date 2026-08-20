@@ -16,6 +16,12 @@ export const startLogin = () => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;
   const appId = import.meta.env.VITE_APP_ID;
   const redirectUri = `${window.location.origin}/api/oauth/callback`;
+  // If OAuth is not configured (e.g. demo deploy), fall back to an
+  // in-app sign-in page that stores a demo user in localStorage.
+  if (!oauthPortalUrl || !appId) {
+    window.location.href = `${window.location.origin}/signin`;
+    return;
+  }
 
   const nonce = crypto.randomUUID();
   document.cookie = `${OAUTH_STATE_COOKIE}=${nonce}; Path=/; Max-Age=600; SameSite=None; Secure`;

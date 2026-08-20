@@ -406,14 +406,15 @@ export function DetailsPanel({
           ))}
         </div>
       </section>
-      <a
-        className="apply-link"
-        href={job.applyUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Apply on company website <ArrowRight size={16} />
-      </a>
+      {job.applyUrl.includes("example.com") ? (
+        <Link className="apply-link" href={`/apply/${job.id}`}>
+          Apply on company website <ArrowRight size={16} />
+        </Link>
+      ) : (
+        <a className="apply-link" href={job.applyUrl} target="_blank" rel="noreferrer">
+          Apply on company website <ArrowRight size={16} />
+        </a>
+      )}
     </aside>
   );
 }
